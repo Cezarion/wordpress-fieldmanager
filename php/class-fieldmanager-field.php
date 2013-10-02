@@ -127,7 +127,7 @@ abstract class Fieldmanager_Field {
 	 * Functions to use to validate input
 	 */
 	public $validate = array();
-	
+
 	/**
 	 * @var string|array
 	 * jQuery validation rule(s) used to validate this field, entered as a string or associative array.
@@ -135,7 +135,7 @@ abstract class Fieldmanager_Field {
 	 * For more information see http://jqueryvalidation.org/documentation/
 	 */
 	public $validation_rules;
-	
+
 	/**
 	 * @var string|array
 	 * jQuery validation messages used by the rule(s) defined for this field, entered as a string or associative array.
@@ -144,7 +144,7 @@ abstract class Fieldmanager_Field {
 	 * For more information see http://jqueryvalidation.org/documentation/
 	 */
 	public $validation_messages;
-	
+
 	/**
 	 * @var boolean
 	 * Makes the field required on WordPress context forms that already have built-in validation.
@@ -440,7 +440,7 @@ abstract class Fieldmanager_Field {
 		if ( !( $this->field_class == 'group' && ( !isset( $this->label ) || empty( $this->label ) ) ) ) {
 			$classes[] = 'fm-' . $this->field_class;
 		}
-		
+
 		// Check if the required attribute is set. If so, add the class.
 		if ( $this->required ) {
 			$classes[] = 'form-required';
@@ -733,7 +733,7 @@ abstract class Fieldmanager_Field {
 	 * @return string button HTML.
 	 */
 	public function add_another() {
-		$classes = array( 'fm-add-another', 'fm-' . $this->name . '-add-another' );
+		$classes = array( 'button-primary fm-add-another', 'fm-' . $this->name . '-add-another' );
 		$out = '<div class="fm-add-another-wrapper">';
 		$out .= sprintf(
 			'<input type="button" class="%s" value="%s" name="%s" data-related-element="%s" />',
@@ -795,7 +795,7 @@ abstract class Fieldmanager_Field {
 		$this->require_base();
 		return new Fieldmanager_Context_Page( $uniqid, $this );
 	}
-	
+
 	/**
 	 * Add a form on a term add/edit page
 	 * @param string $title
@@ -881,7 +881,7 @@ abstract class Fieldmanager_Field {
 			);
 		}
 	}
-	
+
 	/**
 	 * Die violently. If self::$debug is true, throw an exception.
 	 * @param string $debug_message

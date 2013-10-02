@@ -73,18 +73,32 @@ class Fieldmanager_Media extends Fieldmanager_Field {
 		if ( is_numeric( $value ) && $value > 0 ) {
 			$attachment = get_post( $value );
 			if ( strpos( $attachment->post_mime_type, 'image/' ) === 0 ) {
-				$preview = sprintf( '%s<br />', __( 'Uploaded image:' ) );
-				$preview .= wp_get_attachment_image( $value, 'thumbnail', false, array( 'class' => $this->thumbnail_class ) );
+				$metadas = wp_get_attachment_metadata($attachment->ID);
+				$preview = sprintf( '<div class="fm-media-label">%s</div>', __( 'Uploaded image:' ) );
+				$preview .= '<div class="fm-media">
+									<div class="fm-media-object pull-left">'
+										.wp_get_attachment_image( $value, 'thumbnail', false, array( 'class' => $this->thumbnail_class ) )
+							 .'		</div>
+							 		<div class="fm-media-body">
+										<div class="fm-media-heading"><span class="fm-medial-label">Name :</span>'.$attachment->post_title.'</div>'
+							.'			<div class="fm-media-content">
+											<ul>
+												<li><span class="fm-medial-label">Size :</span> '.$metadas['width'].'x'.$metadas['height'].'</li>
+												<li><span class="fm-medial-label">Type :</span> '.$metadas['sizes']['thumbnail']['mime-type'].'</li>
+											</ul>
+										</div>
+									</div>
+							 </div>';
 			} else {
 				$preview = sprintf( '%s', __( 'Uploaded file:' ) ) . '&nbsp;';
 				$preview .= wp_get_attachment_link( $value, 'thumbnail', True, True, $attachment->post_title );
 			}
-			$preview .= sprintf( '<br /><a href="#" class="fm-media-remove fm-delete">%s</a>', __( 'remove' ) );
+			$preview .= sprintf( '<br /><a href="#" class="button button-danger fm-media-remove fm-delete">%s</a>', __( 'remove' ) );
 		} else {
 			$preview = '';
 		}
 		return sprintf(
-			'<input type="button" class="fm-media-button" id="%1$s" value="%3$s" />
+			'<input type="button" class="button fm-media-button" id="%1$s" value="%3$s" />
 			<input type="hidden" name="%2$s" value="%4$s" class="fm-element fm-media-id" />
 			<div class="media-wrapper">%5$s</div>',
 			$this->get_element_id(),

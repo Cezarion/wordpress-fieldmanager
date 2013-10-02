@@ -1,3 +1,52 @@
+.fm-media,
+.fm-media-body {
+  overflow: hidden;
+  *overflow: visible;
+  zoom: 1;
+}
+
+.fm-media-object {
+  display: block;
+}
+
+.fm-media-heading {
+  margin: 0 0 5px;
+  font-weight: bold;
+  font-size: 14px;
+  text-transform: capitalize;
+}
+
+.fm-media-label
+{
+	margin: 10px 0;
+}
+
+.fm-media > .pull-left {
+  margin-right: 10px;
+}
+
+.fm-media > .pull-right {
+  margin-left: 10px;
+}
+
+.button-danger, .wp-core-ui .button-danger
+{
+	color: #ffffff;
+	  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	  background-color: #da4f49;
+	  *background-color: #bd362f;
+	  background-image: -moz-linear-gradient(top, #ee5f5b, #bd362f);
+	  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ee5f5b), to(#bd362f));
+	  background-image: -webkit-linear-gradient(top, #ee5f5b, #bd362f);
+	  background-image: -o-linear-gradient(top, #ee5f5b, #bd362f);
+	  background-image: linear-gradient(to bottom, #ee5f5b, #bd362f);
+	  background-repeat: repeat-x;
+	  border-color: #bd362f #bd362f #802420;
+	  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+	  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffee5f5b', endColorstr='#ffbd362f', GradientType=0);
+	  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+
 .fm-group {
 	border: solid 1px #DDD;
 	-webkit-border-radius: 3px;
@@ -32,6 +81,8 @@ div.fm-group-label-wrapper {
 	overflow: auto;
 }
 
+.fm-label { font-weight: bold;}
+
 .fm-label-inline {
 	margin: 0 5px 0 0;
 }
@@ -51,6 +102,13 @@ div.fm-group-label-wrapper {
 
 .fm-item, .fm-add-another {
 	margin-bottom: 5px;
+}
+
+.fm-item input[disabled]
+{
+	border: 1px solid #FFF;
+	padding: 5px 10px;
+	background-color: #EEE;
 }
 
 .fmjs-proto {
@@ -248,9 +306,9 @@ a.fm-delete:hover {
 }
 
 .media-wrapper {
-	margin: 5px 0 15px 15px;
-	padding-left: 10px;
-	border-left: solid 1px #ccc;
+	margin: 10px 0 15px;
+	padding: 5px;
+	/*border-left: solid 1px #ccc;*/
 }
 
 .fm-submenu-form-wrapper {

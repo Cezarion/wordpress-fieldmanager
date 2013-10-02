@@ -138,7 +138,7 @@ tinyMCE.ScriptLoader.markDone( "%1$sjs/tinymce/themes/advanced/langs/en.js" );
 			'theme' => "advanced",
 			'language' => 'en',
 			'skin' => "wp_theme",
-			'editor_css' => "/wp-includes/css/editor.css",
+			'editor_css' => WP_SITEURL.'/'.WPINC."/css/editor.css",
 			'theme_advanced_toolbar_align' => "left",
 			'theme_advanced_statusbar_location' => "bottom",
 			'theme_advanced_resizing' => true,
@@ -166,7 +166,7 @@ tinyMCE.ScriptLoader.markDone( "%1$sjs/tinymce/themes/advanced/langs/en.js" );
 			$options['style_formats'] = json_decode( $options['style_formats'] );
 		}
 
-		// print_r($options); exit;
+		//print_r($options); exit;
 		unset( $options['elements'] );
 		return $options;
 	}
